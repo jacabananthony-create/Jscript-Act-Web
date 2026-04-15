@@ -1,45 +1,27 @@
-// FOR LOOP
-function showFor() {
-   let num = document.getElementById("forNum").value;
-   let text = document.getElementById("forText").value;
-   let output = document.getElementById("forOutput");
-   output.innerHTML = "";
-   for (let i = 1; i <= num; i++) {
-       output.innerHTML += "<li>" + text + "</li>";
-   }
+function calculate(){
+    const num1 = parseFloat(document.getElementById("num1").value);
+    const num2 = parseFloat(document.getElementById("num2").value);
+ 
+    if (isNaN(num1) || isNaN(num2)) {
+        document.getElementById("sum").innerHTML = "Please enter valid numbers.";
+        return;
+    }
+ 
+    const sum = (num1 + num2).toFixed(2);
+    const difference = (num1 - num2).toFixed(2);
+    const product = (num1 * num2).toFixed(2);
+    const quotient = num2 !== 0 ? (num1 / num2).toFixed(2) : "Cannot divide by zero";
+    const modulo = num2 !== 0 ? (num1 % num2).toFixed(2) : "Cannot divide by zero";
+ 
+    document.getElementById("sum").innerHTML =
+        "Sum: " + sum + "<br>" +
+        "Difference: " + difference + "<br>" +
+        "Product: " + product + "<br>" +
+        "Quotient: " + quotient + "<br>" +
+        "Modulo: " + modulo;
 }
-function clearFor() {
-   document.getElementById("forOutput").innerHTML = "";
+ 
+function clearFields(){
+    document.getElementById("sum").innerHTML = "";
 }
-
-// WHILE LOOP
-function showWhile() {
-   let num = document.getElementById("whileNum").value;
-   let text = document.getElementById("whileText").value;
-   let output = document.getElementById("whileOutput");
-   output.innerHTML = "";
-   let i = 1;
-   while (i <= num) {
-       output.innerHTML += "<li>" + text + "</li>";
-       i++;
-   }
-}
-function clearWhile() {
-   document.getElementById("whileOutput").innerHTML = "";
-}
-
-// DO-WHILE LOOP
-function showDoWhile() {
-   let num = document.getElementById("doNum").value;
-   let text = document.getElementById("doText").value;
-   let output = document.getElementById("doOutput");
-   output.innerHTML = "";
-   let i = 1;
-   do {
-       output.innerHTML += "<li>" + text + "</li>";
-       i++;
-   } while (i <= num);
-}
-function clearDo() {
-   document.getElementById("doOutput").innerHTML = "";
-}
+ 
